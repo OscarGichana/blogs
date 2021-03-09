@@ -1,0 +1,47 @@
+{% extends 'base.html'%}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import 'macros.html' as macro%}
+
+{% block content%}
+<div class="container body">
+
+    <div class="row">
+
+      <h1>Comments</h1>
+      <hr>
+      <div class="row">
+
+        <!-- Content block -->
+
+
+
+      {% if comments %}
+        <div class="row">
+          <div class="col-md-6">
+          {{macro.displayComments(comments)}}
+          </div>
+          <div class="col-md-4">
+          <a class="btn btn-success btn-lg text-center"> Write a new Comment</a>
+            {{wtf.quick_form(comment_form)}}
+
+          </div>
+        </div>
+        <hr>
+      {% else%}
+          <h3 class="text-center">This Blog has no Comments </h3>
+
+          <a class="btn btn-success btn-lg text-center"> Write a new Comment</a>
+          <hr>
+          <div class="col-md-4">
+            {{wtf.quick_form(comment_form)}}
+
+          </div>
+
+
+      {% endif %}
+
+    </div>
+
+  </div>
+
+{%endblock%}
