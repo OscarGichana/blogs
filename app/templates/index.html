@@ -1,0 +1,107 @@
+<!-- <link rel="icon" href="data:,">-->
+
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+
+<!-- Styles block -->
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://kit.fontawesome.com/2e65670cdd.js"></script>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+    <!-- Custom styles for this template -->
+  
+{% endblock %}
+<!-- Content block -->
+{% block content %}
+
+<div class="container">
+  <!--<header class="masthead" style="background-image: url('https://picsum.photos/1900/1267?grayscale'); margin-top: 40px;">-->
+  <div class="row">
+    <blockquote class="blockquote text-center">
+      <p class="mb-0">{{quote.quote}}</p>
+      <br>
+      <footer class="blockquote-footer"><cite>{{quote.author}}</cite></footer>
+    </blockquote>
+  </div>    
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="w3-card-4" style="width:100%; margin: 1px; padding: 1px; border: 1px;">
+    
+        <div class="w3-container">
+          <img src="/static/1.png" width="100%" height="100%" alt="Related Book 1">            
+        </div>
+    
+        <footer class="w3-container">
+            <h5>OSCAR GICHANA</h5> 
+            <p>Hello, Oscar here, your local Techie</p>
+            <p>A Kenyan with aspirations of Conquering the world. My idea of what life should be:
+              Money worth of years, working from home with your sweat pants, trips to places you only see on Instagram. Having time to spend with your loved ones and flexing it in life.
+            </p>
+            <p>Oops! But that's just a dream. It won't stop me from trying to motivate you though</p>
+        </footer>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="row">
+
+        <!-- Content block -->
+
+        <div class="container body">
+          <div class="row">
+            <h3> Blogs </h3>
+            {{macro.displayPosts(post)}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+<hr/>
+</div>
+
+  <!-- Footer -->
+  <footer>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="copyright text-muted">Copyright &copy; Oscar Gichana 2021</li>
+            <li class="list-inline-item">
+              <a href="https://facebook.com/OscarGichana9" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.instagram.com/ossy_gichy/" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/OscarGichana" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+{% endblock %}
