@@ -1,0 +1,40 @@
+{% macro displayPosts(all_posts) %}
+
+{% for posts in all_posts %}
+
+        <div class="w3-card-4" style="width:80%; margin: 1px; padding: 1px; border: 1px;">
+          <header class="w3-container w3-purple">
+              <h1>{{posts.title}}</h1>
+          </header>
+      
+          <div class="w3-container">
+            <p>{{posts.post}}</p>
+          </div>
+      
+          <footer class="w3-container w3-blue">
+              <h5>By:{{posts.name}} <a href="{{url_for('main.comments',id=posts.id)}}">View Comments</a></h5> 
+          </footer>
+        </div>
+
+        
+{% endfor %}
+{% endmacro %}
+
+
+{% macro displayComments(all_comments) %}
+
+{% for comments in all_comments %}
+
+  <div class="row">
+    <blockquote class="blockquote text-center">
+      <p class="mb-0">{{comments.comment}}</p>
+      <br>
+      <footer class="blockquote-footer"><cite>{{comments.name}}</cite></footer>
+    </blockquote>
+  </div>    
+
+{% endfor %}
+{% endmacro %}
+
+
+
